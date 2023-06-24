@@ -68,6 +68,8 @@ int main() {
     //test_str_type();
     test_str_type2();
 
+    char c[4] = "妖";
+
 
     return 0;
 }

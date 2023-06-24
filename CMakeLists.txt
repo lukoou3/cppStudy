@@ -27,3 +27,7 @@ add_executable(strngbad_run_vegnews cls3/strngbad_run_vegnews.cpp cls3/strngbad.
 add_executable(sayings1 cls3/sayings1.cpp cls3/string1.cpp)
 add_executable(sayings2 cls3/sayings2.cpp cls3/string1.cpp)
 add_executable(bank cls4/bank.cpp cls4/queue.cpp)
+add_executable(str stl/str.cpp)
+add_executable(vector stl/vector.cpp)
+add_executable(map stl/map.cpp)
+add_executable(unordered_map stl/unordered_map.cpp)
