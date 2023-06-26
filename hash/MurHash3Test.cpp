@@ -15,13 +15,17 @@ void test_hash_long(){
         printf("%d:%lld,%lld\n", i, hashResult.h1, hashResult.h2);
         //printf("%d:%llu,%llu\n", i, hashResult.h1, hashResult.h2);
         //cout << i << ":" << hashResult.h1 << "," << hashResult.h2 << endl;
+        cout << i << ":" << static_cast<int64_t>(hashResult.h1) << "," << static_cast<int64_t>(hashResult.h2) << endl;
     }
+
+    cout << "####################" << endl;
 
     for (int64_t i = 400000000000LL; i < 400000000000LL + 10; ++i) {
         int64_t val = static_cast<int64_t>(i);
         HashState hashResult;
         MurmurHash3_x64_128(&val, sizeof(int64_t), DEFAULT_SEED, hashResult);
         printf("%lld:%lld,%lld\n", i, hashResult.h1, hashResult.h2);
+        cout << i << ":" << static_cast<int64_t>(hashResult.h1) << "," << static_cast<int64_t>(hashResult.h2) << endl;
     }
 }
 
