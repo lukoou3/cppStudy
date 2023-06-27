@@ -61,15 +61,52 @@ void test_str_type2() {
     cout << "输入之后str字符串的长度: " << str.size() << endl;
 }
 
+void test_raw_str() {
+    string str1 = R"(
+    {
+        "name": "Judd Trump",
+        "credits": 1754500,
+        "ranking": 1
+    }
+)";
+    char *str2 = R"(
+    {
+        "name": "Judd Trump",
+        "credits": 1754500,
+        "ranking": 1
+    }
+)";
+    cout << str1 << endl;
+    string line(20, '#');
+    cout << line << endl;
+    cout << str2 << endl;
+    cout << line << endl;
+    string str3 = R"NOT_PRINT_FLAG(
+    {
+        "name": "Judd Trump",
+        "credits": 1754500,
+        "ranking": "(1)"
+    }
+)NOT_PRINT_FLAG";
+    cout << str3 << endl;
+    // delim是自定义字符
+    string str4 = R"delim(
+    {
+        "name": "Judd Trump",
+        "credits": 1754500,
+        "ranking": "(1)"
+    }
+)delim";
+    cout << str4 << endl;
+}
+
 int main() {
     SetConsoleOutputCP(65001);
 
     //test_strings();
     //test_str_type();
-    test_str_type2();
-
-    char c[4] = "妖";
-
+    //test_str_type2();
+    test_raw_str();
 
     return 0;
 }
