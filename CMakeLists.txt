@@ -3,6 +3,19 @@ project(cppStudy)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# 设置openssl的安装位置
+set(opensslDir "D:/apps/OpenSSLc-Win64")
+# 设置头文件位置和动态库位置
+set(INC_DIR ${opensslDir}/include)
+set(LINK_DIR ${opensslDir}/bin)
+
+# 使头文件可访问
+include_directories(${INC_DIR})
+# 指定动态库路径
+link_directories(${LINK_DIR})
+# 添加需要链接的库
+link_libraries(libssl-1_1-x64.dll libcrypto-1_1-x64.dll)
+
 add_executable(base base.cpp)
 
 add_executable(base_array base_array.cpp)
@@ -40,3 +53,10 @@ add_executable(MurHash3Test hash/MurHash3Test.cpp hash/MurmurHash3.h)
 add_executable(nlohmann_json json/nlohmann_json.cpp json/nlohmann/json.hpp)
 add_executable(bash64test base64/bash64test.cpp base64/base64.cpp)
 add_executable(regex_test regex/regex_test.cpp)
+add_executable(openssl_md5 openssl/openssl_md5.cpp)
+add_executable(openssl_sha openssl/openssl_sha.cpp)
+add_executable(openssl_aes openssl/openssl_aes.cpp base64/base64.cpp)
+add_executable(openssl_rsa openssl/openssl_rsa.cpp)
+
+# 将可执行文件链接到库
+#target_link_libraries(openssl_rsa ssl)
